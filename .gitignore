@@ -1,0 +1,5 @@
+data/glove
+data/wikiqa
+trainedmodel/*
+.idea/
+__pycache__
