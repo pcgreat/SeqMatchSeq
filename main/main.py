@@ -9,7 +9,7 @@ from wikiqa.compAggWikiqa import compAggWikiqa, train
 parser = argparse.ArgumentParser()
 parser.add_argument('--batch_size', type=int, default=10, help='number of sequences to train on in parallel')
 parser.add_argument('--max_epochs', type=int, default=10, help='number of full passes through the training data')
-parser.add_argument('--seed', type=int, default=123, help='torch manual random number generator seed')
+parser.add_argument('--seed', type=int, default=321, help='torch manual random number generator seed')
 parser.add_argument('--reg', type=float, default=0, help='regularize value')
 parser.add_argument('--learning_rate', type=float, default=0.004, help='learning rate')
 parser.add_argument('--emb_lr', type=float, default=0., help='embedding learning rate')
@@ -61,7 +61,7 @@ for i in range(opt.max_epochs):
     model.optim_state['learningRate'] = model.optim_state['learningRate'] * opt.lr_decay
 
     recordDev = model.predict_dataset(dev_dataset)
-    model.save('../trainedmodel/', opt, [recordDev], i)
+    model.save('./trainedmodel/', opt, [recordDev], i)
     # if i == opt.max_epochs then
     #     model.params:copy( model.best_params )
     #     recordDev = model:predict_dataset(dev_dataset)

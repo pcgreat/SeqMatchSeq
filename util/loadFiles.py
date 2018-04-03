@@ -82,7 +82,7 @@ def buildVacab2Emb(opt):
     print("Loading " + opt.preEmb + " ...")
     if opt.preEmb == 'glove':
         if opt.wvecDim in [300]:  # TODO: support 50, 100, 200 as well
-            file = open("../data/" + opt.preEmb + "/glove.840B.%sd.txt" % opt.wvecDim, 'r')
+            file = open("./data/" + opt.preEmb + "/glove.840B.%sd.txt" % opt.wvecDim, 'r')
         else:
             raise Exception("Glove doesn't have %s dimension embeddings" % opt.wvecDim)
     else:

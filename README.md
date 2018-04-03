@@ -36,8 +36,9 @@ For now, this code only support SNLI and WikiQA data sets.
 WikiQA task:
 ```
 sh preprocess.sh wikiqa (Please first dowload the file "WikiQACorpus.zip" to the path SeqMatchSeq/data/wikiqa/ through address: https://www.microsoft.com/en-us/download/details.aspx?id=52419)
-cd main
-PYTHONPATH=. python3 main/main.py --task wikiqa --model compAggWikiqa --comp_type mul --learning_rate 0.004 --dropoutP 0.04 --batch_size 10 --mem_dim 150```
+
+PYTHONPATH=. python3 main/main.py --task wikiqa --model compAggWikiqa --comp_type mul --learning_rate 0.004 --dropoutP 0.04 --batch_size 10 --mem_dim 150
 
 - `model` (model name) : compAggWikiqa 
 - `comp_type` (8 different types of word comparison): only mul works for now, but you can easily add others and send me pull request
+```

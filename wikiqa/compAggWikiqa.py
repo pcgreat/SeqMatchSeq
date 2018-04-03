@@ -61,7 +61,7 @@ class compAggWikiqa(nn.Module):
             def forward(self, input):
                 var1 = self.layer1(input)
                 var1 = var1.view(-1)
-                out = F.log_softmax(var1)
+                out = F.log_softmax(var1, dim=0)
                 return out
 
         self.soft_module = TempNet(mem_dim)
@@ -134,7 +134,7 @@ class compAggWikiqa(nn.Module):
 
                 self.lPad = linput  # self.lPad = Padding(0, 0)(linput) TODO: figureout why padding?
                 self.M_r = torch.mm(self.lPad, rinput.t())
-                self.alpha = F.softmax(self.M_r.transpose(0, 1))
+                self.alpha = F.softmax(self.M_r.transpose(0, 1), dim=0)
                 self.Yl = torch.mm(self.alpha, self.lPad)
                 return self.Yl
 
