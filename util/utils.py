@@ -1,3 +1,5 @@
+import pdb
+
 import torch
 
 
@@ -12,7 +14,7 @@ def MAP(ground_label: torch.FloatTensor, predict_label: torch.FloatTensor):
 
     val, key = torch.sort(predict_label, 0, True)
     for i, idx_ in enumerate(key):
-        if idx_ in extracted:
+        if idx_.tolist() in extracted:
             map_idx += 1
             map += map_idx / (i + 1)
 
@@ -32,7 +34,7 @@ def MRR(ground_label: torch.FloatTensor, predict_label: torch.FloatTensor):
 
     val, key = torch.sort(predict_label, 0, True)
     for i, idx_ in enumerate(key):
-        if idx_ in extracted:
+        if idx_.tolist() in extracted:
             mrr = 1.0 / (i + 1)
             break
 

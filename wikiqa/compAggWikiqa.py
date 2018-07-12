@@ -5,7 +5,7 @@ import os
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch._C import randperm
+# from torch._C import randperm
 from torch.autograd import Variable
 from tqdm import tqdm
 
@@ -377,7 +377,7 @@ def train(model: compAggWikiqa, dataset: list):
     model.conv_module.train()
 
     dataset_size = len(dataset)
-    indices = randperm(dataset_size)
+    # indices = randperm(dataset_size)
     indices = [667] + [x for x in range(667)] + [x for x in range(668, 873)]  # TODO: remove me
 
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
